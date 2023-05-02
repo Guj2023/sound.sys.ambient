@@ -1,0 +1,12 @@
+How to use the DF-xx instruments
+
+Copy the code 'for Sonic Pi' into an empty buffer in Sonic Pi.
+When using multiple instruments, copy them into different buffers.
+Copy the code 'for Processing 3' into Processing3.
+
+You need the OscP5 and ControlP5 Librarys in Processing.
+
+In Sonic Pi, run the code of all instruments you want to use.
+in Processing 3, run the code, this should open the UI window.
+
+Please report any problems.

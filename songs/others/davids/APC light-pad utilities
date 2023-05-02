@@ -1,0 +1,67 @@
+#Utilities for light-up pads on APCs
+#https://youtu.be/3vBmxArxQVE
+
+num_keys = 40 #Adapt to your device
+
+#Clear the pads
+live_loop :apc_clear do
+  key, val = sync ''
+  if key == 81
+    for i in (range 0,num_keys)
+      midi_note_on i,0,channel: 1
+    end
+  end
+  puts "cleared"
+end
+
+#Display
+frame = [1,0,3,0,1,0,3,0,
+         0,1,3,1,0,1,3,1,
+         3,3,1,3,3,3,1,3,
+         0,1,3,1,0,1,3,1,
+         1,0,3,0,1,0,3,0]
+#Set to 1 for green, 3 for red and 5 for yellow
+define :apc_display do |frame|
+  for i in (range 0,num_keys)
+    midi_note_on i,frame[i],channel: 1
+  end
+  puts "displayed frame"
+end
+
+#Cycle frames
+frames = [[1,0,0,0,0,0,0,0,
+           1,0,0,1,0,0,0,0,
+           1,0,0,1,0,0,0,0,
+           1,0,0,1,0,0,0,0,
+           1,1,1,1,1,1,1,1],
+          [0,0,1,1,1,1,0,0,
+           0,1,0,0,0,0,1,0,
+           1,0,0,0,0,0,0,1,
+           1,0,0,0,0,0,0,1,
+           1,1,1,1,1,1,1,1]]
+#Each of these blocks is a frame
+comment do
+  live_loop :apc_frames do
+    apc_display frames.ring.tick
+    sleep 1 #Adapt for FPS
+  end
+end
+
+#Switch value on button press and switch it on/off
+button = 64 #Whatever button you want to use
+live_loop :listen_b0 do
+  key, vel = sync "" #After pressing the button, the name should appear in the lower right window
+  #'the key, vel =' is nessessary because sync returns two values
+  if key == button #if the button pressed is the one you wanted
+    var = (ring 0,1).tick
+    midi_note_on
+  end
+end
+
+#Randomly switch the pads
+comment do
+  live_loop :rand_pads do
+    midi_note_on (range 0,num_keys).choose,(ring 0,1,3,5).choose, channel: 1
+    sleep 0.1
+  end
+end
