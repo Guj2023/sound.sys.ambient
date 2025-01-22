@@ -1,2 +1,2 @@
-# Sonic_Pi_songs
- Saving my sonic-pi projects
+# sound.sys.ambient
+ part of sound system manager, using sonic pi to create ambient-like white noise background sounds
