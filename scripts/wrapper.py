@@ -7,6 +7,7 @@ from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import ThreadingOSCUDPServer
 
+
 class OscSender:
     """Python equivalent of OscSender.ts"""
     def __init__(self, port: int, host: str = "127.0.0.1"):
@@ -136,7 +137,7 @@ class SonicPiWrapper:
 
         try:
             process = subprocess.Popen(
-                args, 
+                args,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 universal_newlines=True
@@ -150,7 +151,8 @@ class SonicPiWrapper:
                 if line and line.strip() and len(line.strip().split()) >= 7:
                     ports = line.strip().split()
 
-                    # Order: daemon-keep-alive gui-listen-to-server gui-send-to-server scsynth osc-cues tau-api tau-phx token
+                    # Order: daemon-keep-alive gui-listen-to-server
+                    # gui-send-to-server scsynth osc-cues tau-api tau-phx token
                     self.daemon_port = int(ports[0])
                     self.gui_listen_to_server_port = int(ports[1])
                     self.server_send_to_gui_port = int(ports[2])

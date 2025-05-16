@@ -4,6 +4,9 @@ slow_rain = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_
 thunder = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_rain/thunder-rain.wav"
 gun = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_rain/big-gun-shot_B_minor.wav"
 heavy_rain =  "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_rain/rain-texture-sound-fx-loop_115bpm_E_minor.wav"
+peaceful_rain = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_rain/rain-peaceful-texture-loop_F_minor.wav"
+forest_bugs = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/tropical_malady/forest/bugs_walking.wav"
+summer_night = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/tropical_malady/forest/summer_night_watching_tv.wav"
 live_loop :rain1 do
   sample slow_rain, attack: 5, release: 5, amp: 1.2
   sleep 25

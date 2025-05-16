@@ -5,15 +5,3 @@ heavy_rain =  "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_o
 peaceful_rain = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/samples_of_rain/rain-peaceful-texture-loop_F_minor.wav"
 forest_bugs = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/tropical_malady/forest/bugs_walking.wav"
 summer_night = "/Users/gujun/Developer/Sonic_Pi_songs/self_made_samples/tropical_malady/forest/summer_night_watching_tv.wav"
-
-live_loop :relaxing_rain do
-  sample slow_rain, amp: 0.5
-  sleep 8
-  sample peaceful_rain, amp: 0.5
-  sleep 8
-end
-
-live_loop :ambient_night, delay: 4 do
-  sample summer_night, amp: 0.3
-  sleep 16
-end
